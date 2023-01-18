@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.mapper.comment">
+
+<!-- <resultMap type="comment" id="commentVo">
+	<result column="cno" property="cno"/>
+	<result column="num" property="num" />
+	<result column="userName" property="userName" />
+	<result column="userPass" property="userPass" />
+	<result column="reContent" property="reContent"/>
+	<result column="reWirteDate" property="reWirteDate"/>
+</resultMap>  -->
+
+<!-- 댓글 -->
+
+<!-- 댓글등록 -->
+	<insert id="commentInsert" parameterType="commentVo">
+		INSERT INTO boardComment(cno, num, userName, userPass, reContent) 
+		VALUES(boardComment_seq.nextval,#{cno},#{num},#{userName},#{userPass},#{reContent})
+	</insert>
+
+<!-- 게시글수정 -->
+	<update id="commentUpdate" parameterType="commentVo">
+		INSERT INTO boardComment(cno, num, userName, userPass, reContent) 
+		SET userName=#{userName}, userPass=#{userPass}, pass=#{pass}, reContent=#{reContent}
+		WHERE cno=#{cno}
+	</update>
+
+<!-- 게시글삭제 -->
+	<delete id="commentDelete" parameterType="commentVo">
+		DELETE FROM boardComment 
+		WHERE cno=#{cno}
+	</delete>
+
+</mapper>
