@@ -7,9 +7,10 @@
 <head>
 <meta charset="UTF-8">
 <title>게시글 상세보기</title>
-<link type="text/css" rel="stylesheet" href="./style/board.css">
+<link type="text/css" rel="stylesheet" href="style/board.css">
 <script type="text/javascript" src="script/board.js"> </script>
-</head>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>`
 <body>
     <div id="wrap">
       <h2>게시글 리스트</h2>
@@ -32,35 +33,43 @@
         </tr>
         <tr>
           	<td colspan="6" style="border: white; text-align:center">
-		          <button type="button" onclick="newWindow('BS?command=board_check_email_form&num=${board.num}','update')">
+		          <button type="button" onclick="location.href='boardUpdate?num=${board.num}'">
 		         	 게시글 수정</button>
-		          <button type="button" onclick="newWindow('BS?command=board_check_email_form&num=${board.num}','delete')">
+		          <button type="button" onclick="removeCheck()">
 		         	게시글 삭제</button>
-		          <button type="button" onclick="location.href='BS?command=board_list'">목록 보기</button>
+		          <button type="button" onclick="location.href='boardList'">목록 보기</button>
         	</td>
         </tr>
       </table>
-      <!-- 댓글 페이지 -->
      </div>
-     	<div id="wrap">
+     <!-- 댓글 페이지 -->
+     <div id="wrap">
+     	<form action="commentUpdate" method="post" >
+	     	<input type="hidden" name="comment" value="commentUpdate">
+	     	<input type="hidden" name="cno" value="${board.num}">
       		<table>
       			<c:forEach items="${lists}" var="comment">
       				<tr>
-      					<td>${comment.userName}</td>
-  						<td colspan="2">${comment.reContent}</td>
+      					<td>닉네임</td>
+      					<td id="nick">${comment.userName}</td>		
+  						<td>작성일</td>
   						<td>${comment.reWirteDate}</td>
       				</tr>
       				<tr>
-      					<td><a href="#">댓글</a></td>
-      					<td><a href="BS?command=board_comment_update">수정</a></td>
-      					<td><a href="BS?command=board_comment_delet&num=${comment.num}">삭제</a></td>
+      					<td>내용</td>
+  						<td colspan="2" id="temp">${comment.reContent}</td>
+  						<td>
+  							<button type="button" onclick="updateCk()">수정</button>
+  							<%-- <button type="button" onclick="location.href='commentUpdate?cno=${comment.cno}'">수정</button> --%>
+      						<button type="button" id ="commentDelete" onclick="removeComment('${comment.cno}','${comment.num}')">삭제</button>
+      					</td>
       				</tr>
       			</c:forEach>
       		</table>
-      	</div>
-      	<form action="BS" method="POST">
+      	</form>
+      </div>
+      <form action="commentWrite" method="POST">
       	<input type="hidden" name="num" value="${board.num}">
-      	<input type="hidden" name="command" value="board_comment">
       	<div id="wrap">
       		<table>
       			<tr>
@@ -78,6 +87,6 @@
       			</tr>
       		</table>
 		</div>
-		</form>
+	</form>
   </body>
   </html>

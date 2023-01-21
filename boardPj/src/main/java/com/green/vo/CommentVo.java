@@ -10,6 +10,7 @@ public class CommentVo {
 	private String reContent;
 	private Timestamp reWirteDate;
 	
+	public CommentVo() {}
 	
 	public int getCno() {
 		return cno;

@@ -4,11 +4,9 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.green.vo.BoardVo;
+import com.green.vo.CommentVo;
 
 public class BoardDao {
 	
@@ -23,33 +21,51 @@ public class BoardDao {
 	}
 	
 	//상세게시판
-	public BoardVo selectByNum(String num) {
+	public BoardVo selectByNum(int num) {
 		return sqlSession.selectOne("mybatis.mapper.board.selectByNum",num);
 	}
 	
 	//조회수증가
-	public int readCount() {
-		return sqlSession.selectOne("mybatis.mapper.board.readCount");
+	public void readCount(int num) {
+		sqlSession.selectOne("mybatis.mapper.board.readCount",num);
 	}
 	
 	//게시판등록
 	public void boardWrite(BoardVo bVo) {
-		sqlSession.insert("mybatis.mapper.board.boardWrite");
+		sqlSession.insert("mybatis.mapper.board.boardWrite",bVo);
 	}
 	
 	//게시판 수정
-	public void boardUpdate(String num) {
-		sqlSession.update("mybatis.mapper.board.boardUpdate");
+	public void boardUpdate(BoardVo bVo) {
+		sqlSession.update("mybatis.mapper.board.boardUpdate",bVo);
 	}
 	
 	//게시판 삭제
-	public void boardDelete(String num) {
-		sqlSession.delete("mybatis.mapper.board.boardDelete");
+	public void boardDelete(int num) {
+		sqlSession.delete("mybatis.mapper.board.boardDelete",num);
 	}
 	
-	//이메일인증
-	public BoardVo selectByEmail(String email) {
-		return sqlSession.selectOne("mybatis.mapper.board.selectByEmail");
+	//댓글등록
+	public void commentWrite(CommentVo cVo) {
+		sqlSession.insert("mybatis.mapper.comment.commentWrite",cVo);
 	}
+	
+	//댓글불러오기
+	public List<CommentVo> selectTargetComment(int num) {
+		return sqlSession.selectList("mybatis.mapper.comment.selectTargetComment",num);
+	}
+	
+	
+	//댓글수정
+	public void commentUpdate(CommentVo cVo) {
+		sqlSession.update("mybatis.mapper.comment.commentUpdate",cVo);
+	}
+	
+	//댓글삭제
+	public void commentDelete(int cno) {
+		sqlSession.delete("mybatis.mapper.comment.commentDelete",cno);
+	}
+	
+	
 }
 

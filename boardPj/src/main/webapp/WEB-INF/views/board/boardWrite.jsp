@@ -9,7 +9,7 @@
 </head>
 <body>
   <form action="boardWrite" method="post">
-  <input type="hidden" name="command" value="board_write">
+  <input type="hidden" name="command" value="boardWrite">
     <table class="wrap">
       <tr>
         <th>닉네임</th>
@@ -36,7 +36,7 @@
         <td colspan="2">
           <button type="submit">글작성</button>
           <button type="reset">다시 작성</button>
-          <button type="button" onclick="boardList">목록으로</button>
+          <button type="button" onclick="location.href='boardList'">목록으로</button>
         </td>
       </tr>
       

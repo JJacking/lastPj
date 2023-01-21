@@ -10,8 +10,8 @@
 <body>
 <div id="wrap" align="center">
 	<h2>게시글 수정</h2>
-	<form action="BS" method="post">
-		<input type="hidden" name="command" value="board_update">
+	<form action="boardUpdate" method="post">
+		<input type="hidden" name="command" value="boardUpdate">
 		<input type="hidden" name="num" value="${board.num }">
 		
 		<table>
@@ -38,7 +38,7 @@
 			<tr>
 				<td colspan="2">
 					<button type="submit">수정하기</button>
-					<button type="button" onclick="location.href='BS?command=board_list'">취소하기</button>
+					<button type="button" onclick="location.href='boardDetail'">취소하기</button>
 				</td>
 			</tr>
 		</table>

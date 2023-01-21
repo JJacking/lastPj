@@ -11,22 +11,10 @@ public class BoardVo {
 	private String content; 
 	private int readCount; 
 	private Timestamp wirteDate;
-	private boolean rememberEmail;
 	
 	public BoardVo() {}
 	
-	public BoardVo(int num, String nickName, String email, String pass, String title, String content, int readCount,
-			Timestamp wirteDate, boolean rememberEmail) {
-		this.num = num;
-		this.nickName = nickName;
-		this.email = email;
-		this.pass = pass;
-		this.title = title;
-		this.content = content;
-		this.readCount = readCount;
-		this.wirteDate = wirteDate;
-		this.rememberEmail = rememberEmail;
-	}
+
 	public int getNum() {
 		return num;
 	}
@@ -75,12 +63,7 @@ public class BoardVo {
 	public void setWirteDate(Timestamp wirteDate) {
 		this.wirteDate = wirteDate;
 	}
-	public boolean isRememberEmail() {
-		return rememberEmail;
-	}
-	public void setRememberEmail(boolean rememberEmail) {
-		this.rememberEmail = rememberEmail;
-	}
+
 	
 	
 	

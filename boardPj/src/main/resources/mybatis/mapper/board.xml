@@ -27,15 +27,15 @@
 	</select>
 	
 	<!-- 게시글 상세정보 -->
-	<select id="selectByNum" resultType="boardVo" parameterType="String">
+	<select id="selectByNum" resultType="boardVo" parameterType="int">
 		<include refid="selectAllboard"/>
 		WHERE num=#{num}
 	</select>
 	
 	<!-- 조회수 증가 -->
-	<select id="readCount" parameterType="String">
+	<select id="readCount" parameterType="int">
 		UPDATE boardTbl 
-		SET readcount = readcount+1
+		SET readCount = readCount+1
 		 WHERE num=#{num}
 	</select>
 	
@@ -43,17 +43,11 @@
 	 <select id="selectCount" resultType="int"> 
 		SELECT count(*) FROM boardTbl
 	</select> 
-	
-	<!-- 이메일 본인확인 -->
-	<select id="selectByEmail" resultType="boardVo" parameterType="String">
-		<include refid="selectAllboard"/>
-		WHERE email=#{email}
-	</select>
 
 	<!-- 게시글 등록 -->
 	<insert id="boardWrite" parameterType="boardVo">
-		INSERT INTO boardTbl 
-		VALUES(boardTbl_seq.nextval,#{num},#{nickName},#{email},#{pass},#{title},#{content})
+		INSERT INTO boardTbl(num, nickname, email, pass, title, content)
+		VALUES(boardTbl_seq.nextval,#{nickName},#{email},#{pass},#{title},#{content})
 	</insert>
 	
 	<!-- 게시글수정 -->

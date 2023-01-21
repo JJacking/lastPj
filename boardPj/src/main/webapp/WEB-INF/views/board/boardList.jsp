@@ -23,7 +23,7 @@
 		<c:forEach items="${list}" var="board">
 			<tr>
 				<td>${board.num}</td>
-				<td><a href="boardDetail?num"=${board.num}">${board.title}</a></td>
+				<td><a href="boardDetail?num=${board.num}">${board.title}</a></td>
 				<td>${board.nickName}</td>
 				<td> <fmt:formatDate value="${board.wirteDate}"/> </td>
 				<td>${board.readCount}</td>
@@ -35,7 +35,7 @@
 			</td>
 		</tr>
 	</table>
-	
+	<%-- 
 	<!-- 페이징 -->
 	<div class="cls2"> 
 		<c:if test="${totalCnt != null}"> 
@@ -89,6 +89,6 @@
 			</c:choose>
 		</c:if>
 	</div>
-</div>
+</div> --%>
 </body>
 </html>
