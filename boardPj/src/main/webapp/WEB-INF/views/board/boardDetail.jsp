@@ -10,7 +10,7 @@
 <link type="text/css" rel="stylesheet" href="style/board.css">
 <script type="text/javascript" src="script/board.js"> </script>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-</head>`
+</head>
 <body>
     <div id="wrap">
       <h2>게시글 리스트</h2>
@@ -35,7 +35,7 @@
           	<td colspan="6" style="border: white; text-align:center">
 		          <button type="button" onclick="location.href='boardUpdate?num=${board.num}'">
 		         	 게시글 수정</button>
-		          <button type="button" onclick="removeCheck()">
+		          <button type="button" onclick="removeCheck(cno)">
 		         	게시글 삭제</button>
 		          <button type="button" onclick="location.href='boardList'">목록 보기</button>
         	</td>
@@ -44,7 +44,7 @@
      </div>
      <!-- 댓글 페이지 -->
      <div id="wrap">
-     	<form action="commentUpdate" method="post" >
+     	<form action="commentUpdate" method="post" id="commentUpdate">
 	     	<input type="hidden" name="comment" value="commentUpdate">
 	     	<input type="hidden" name="cno" value="${board.num}">
       		<table>
@@ -59,8 +59,7 @@
       					<td>내용</td>
   						<td colspan="2" id="temp">${comment.reContent}</td>
   						<td>
-  							<button type="button" onclick="updateCk()">수정</button>
-  							<%-- <button type="button" onclick="location.href='commentUpdate?cno=${comment.cno}'">수정</button> --%>
+  							<button type="button" onclick="#">수정</button>
       						<button type="button" id ="commentDelete" onclick="removeComment('${comment.cno}','${comment.num}')">삭제</button>
       					</td>
       				</tr>
@@ -71,7 +70,7 @@
       <form action="commentWrite" method="POST">
       	<input type="hidden" name="num" value="${board.num}">
       	<div id="wrap">
-      		<table>
+      		<table id="commentTb">
       			<tr>
       				<td>닉네임</td>
       				<td><input type="text" name="userName"></td>

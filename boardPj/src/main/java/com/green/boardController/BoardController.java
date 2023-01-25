@@ -34,7 +34,7 @@ public class BoardController {
 		return "board/boardList";
 	}
 	
-	//상세게시판
+	//상세게시판(상세글+댓글불러오기)
 	@RequestMapping("/boardDetail")
 	public ModelAndView boardDetail(@RequestParam int num ,Model model) {
 		boardService.readCount(num);
@@ -43,13 +43,6 @@ public class BoardController {
 		model.addAttribute("lists",lists);
 		return new ModelAndView("board/boardDetail","board", board);
 	}
-	
-
-//	@RequestMapping("/boardWrite")
-//	public String boardWrite(@ModelAttribute BoardVo board) {
-//		boardService.boardWrite(board);
-//		return "board/boardWrite";
-//	}
 	
 	//게시판쓰기
 	@GetMapping("/boardWrite")

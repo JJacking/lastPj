@@ -27,8 +27,8 @@
 
 <!-- 댓글수정 -->
 	<update id="commentUpdate" parameterType="commentVo">
-		UPDATE boardComment(cno, num, userName, userPass, reContent) 
-		SET userName=#{userName}, userPass=#{userPass}, reContent=#{reContent}
+		UPDATE boardComment(cno, num, userName, reContent) 
+		SET userName=#{userName},  reContent=#{reContent}
 		WHERE cno=#{cno}
 	</update>
 
