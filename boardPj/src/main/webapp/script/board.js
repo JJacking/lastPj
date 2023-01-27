@@ -1,3 +1,10 @@
+$(document).ready(function(){
+	$("menu>a").click(function({
+		$(this).next("ul").toggleClass("hide");
+	}));
+});
+
+
 function removeCheck() {
 	  if (confirm("정말 삭제하시겠습니까??") == true){    
 	      location.href='boardDelete?num=${board.num}';

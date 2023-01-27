@@ -59,7 +59,7 @@
       					<td>내용</td>
   						<td colspan="2" id="temp">${comment.reContent}</td>
   						<td>
-  							<button type="button" onclick="#">수정</button>
+  							<button type="button" onclick="commentUpdate()">수정</button>
       						<button type="button" id ="commentDelete" onclick="removeComment('${comment.cno}','${comment.num}')">삭제</button>
       					</td>
       				</tr>
