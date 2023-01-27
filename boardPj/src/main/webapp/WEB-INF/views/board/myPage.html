@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>내정보</title>
+  <link type="text/css" rel="stylesheet" href="../board/style/board.css">
 </head>
 <body>
   <div class="nav">
@@ -22,24 +23,25 @@
         <li><a href="#">고객센터</a></li>
        </ul>
   
-      <div>
-        <p><a href="#">내정보</a></p>
-        <p><a href="#">로그아웃</a></p>
+      <div class="">
+        <p><a href="#">내정보</a> <a href="#">로그아웃</a></p>
       </div>
   </div>
     <div class="leftList">
       <ul>
-        <li><a href="#">정보수정</a></li>
+        <li><a href="#" >정보수정</a></li>
         <li><a href="#">포인트 충전/조회</a></li>
         <li><a href="#">낙찰내역</a></li>
         <li><a href="#">응찰내역</a></li>
       </ul>
     </div>
     <div class="myPageMain">
-      <h2>${}환영합니다</h2>
+      <h2>${}님 정보 수정을 위해 비밀번호 확인이 필요합니다.</h2>
       <hr>
-      
-
+      <form action="">
+        비밀번호 확인 : <input type="password" name="userPw">
+        <button type="button">확인</button>
+      </form>
     </div>
 
   <footer>
