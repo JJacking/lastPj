@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>게시글 수정</title>
-<link type="text/css" rel="stylesheet" href="style/board.css">
+<link type="text/css" rel="stylesheet" href="../board/style/board.css">
 </head>
 <body>
 <div id="wrap" align="center">

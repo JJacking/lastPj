@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>게시물 등록</title>
-<link type="text/css" rel="stylesheet" href="style/board.css">
+<link type="text/css" rel="stylesheet" href="../board/style/board.css">
 </head>
 <body>
   <form action="boardUpdate" method="post">

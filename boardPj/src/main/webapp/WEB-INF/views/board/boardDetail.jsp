@@ -7,8 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>게시글 상세보기</title>
-<link type="text/css" rel="stylesheet" href="style/board.css">
-<script type="text/javascript" src="script/board.js"> </script>
+<link type="text/css" rel="stylesheet" href="../board/style/board.css">
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>

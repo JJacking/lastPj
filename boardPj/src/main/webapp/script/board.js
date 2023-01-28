@@ -1,8 +1,3 @@
-$(document).ready(function(){
-	$("menu>a").click(function({
-		$(this).next("ul").toggleClass("hide");
-	}));
-});
 
 
 function removeCheck() {
